@@ -1,0 +1,9 @@
+#!/bin/bash
+
+dir=$PWD; while [[ ! -f $dir/.s3/s3cmd.conf && -n $dir ]]; do dir=${dir%/*}; done
+if [[ "$dir" = "" ]]; then
+    s3cmd --config=$HOME/.s3cfg "$@"
+    exit
+fi
+s3cmd --config=$dir/.s3/s3cmd.conf "$@"
+exit
