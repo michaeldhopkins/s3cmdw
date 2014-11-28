@@ -1,12 +1,12 @@
 s3cmdw
 ======
 
-A project-level-config-aware wrapper for s3cmd (http://s3tools.org/usage).
+A project-level-config-aware wrapper for [s3cmd](http://s3tools.org/s3cmd).
 
 Why?
 ----
 
-s3cmd always looks for its S3 access/configuration at `$HOME/.s3cfg`. However, individual projects often have their own S3 credentials and may need project-specific settings. s3cmd requires a `--config=/path/to/.s3cfg` passed with each command to support this.
+s3cmd always looks for its S3 access/configuration at `$HOME/.s3cfg`. However, individual projects often have their own S3 credentials and may need project-specific settings. s3cmd requires a `--config=/path/to/.s3cfg` argument passed with each command to support this.
 
 s3cmdw travels up your directory tree to detect your project-level config file and calls s3cmd with it, passing on your additional arguments directly. Right now, it looks for .s3cfg and .s3/s3cmd.conf (the format used by [Sculpin](https://sculpin.io/)).
 
